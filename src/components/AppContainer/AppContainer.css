@@ -5,5 +5,5 @@
   flex-direction: row;
   align-items: stretch;
   min-height: 688px;
-  min-width: 1000px;
+  min-width: 100%;
 }
