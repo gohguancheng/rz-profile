@@ -1,0 +1,11 @@
+.thx-drawer {
+  width: 240px;
+  max-width: 240px;
+  padding: 20px;
+  background-color: #111;
+  flex-direction: column;
+  position: relative;
+  z-index: 99;
+
+  height:100%;
+}

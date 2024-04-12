@@ -1,0 +1,11 @@
+.thx-window {
+  z-index: 98;
+  background-color: #222;
+  padding: 20px 80px;
+  min-height: 640px;
+  min-width: 60px;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex: 1 1 auto;
+}
