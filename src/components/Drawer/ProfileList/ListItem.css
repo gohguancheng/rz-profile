@@ -1,0 +1,76 @@
+.profile-item {
+  height: 30px;
+  border: none;
+  color: #ccc;
+  text-transform: capitalize;
+  padding: 5px 10px 5px 36px;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  will-change: color, background-color;
+}
+
+.profile-item.active {
+  color: #44d62c;
+}
+
+.profile-item:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.profile-item::before {
+  content: " ";
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  left: 10px;
+  background-position: center;
+}
+
+.profile-item.movie::before {
+  background-image: url("../../../images/icon_profiles_movie.svg");
+}
+
+.profile-item.movie.active::before {
+  background-image: url("../../../images/profile_sel_movie.svg");
+}
+
+.profile-item.game::before {
+  background-image: url("../../../images/icon_profiles_game.svg");
+}
+
+.profile-item.game.active::before {
+  background-image: url("../../../images/profile_sel_game.svg");
+}
+
+.profile-item.music::before {
+  background-image: url("../../../images/icon_profiles_music.svg");
+}
+
+.profile-item.music.active::before {
+  background-image: url("../../../images/profile_sel_music.svg");
+}
+
+.profile-item.default::before {
+  background-image: url("../../../images/icon_profiles_default.svg");
+}
+
+.profile-item.default.active::before {
+  background-image: url("../../../images/profile_sel_default.svg");
+}
+
+.profile-item.custom::before {
+  background-image: url("../../../images/icon_profiles_default.svg");
+}
+
+.profile-item.custom.active::before {
+  background-image: url("../../../images/profile_sel_default.svg");
+}
