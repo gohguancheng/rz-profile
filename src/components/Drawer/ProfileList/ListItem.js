@@ -26,7 +26,7 @@ const ListItem = memo(function ListItem({
       dispatch(setTextInput(label));
       inputRef.current.focus();
     }
-  }, [editable]);
+  }, [editable, label, dispatch]);
 
   const handleSubmit = () => {
     dispatch(rename({ newLabel: textInput?.trim() || label, index }));
