@@ -1,4 +1,4 @@
-import { memo, useEffect, useRef, useState } from "react";
+import { memo, useEffect, useRef } from "react";
 import "./ListItem.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setTextInput } from "../../../redux/appState";
@@ -28,6 +28,11 @@ const ListItem = memo(function ListItem({
     }
   }, [editable]);
 
+  const handleSubmit = () => {
+    dispatch(rename({ newLabel: textInput?.trim() || label, index }));
+    dispatch(setEditSelected(false));
+    dispatch(setTextInput(undefined));
+  };
   return (
     <li
       className={`profile-item ${type} ${isActive ? "active" : ""}`}
@@ -39,17 +44,18 @@ const ListItem = memo(function ListItem({
           ref={inputRef}
           className="profile-item"
           type="text"
+          placeholder="Enter Profile Name"
           value={textInput ?? label}
           onFocus={(event) => event.target.select()}
           onChange={(evt) => {
             dispatch(setTextInput(evt.target.value));
           }}
-          onBlur={() => {
-            dispatch(rename({ newLabel: textInput || label, index }));
-            dispatch(setEditSelected(false));
-            dispatch(setTextInput(undefined));
+          onBlur={handleSubmit}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleSubmit();
+            }
           }}
-          placeholder="Enter Profile Name"
         />
       )}
     </li>
