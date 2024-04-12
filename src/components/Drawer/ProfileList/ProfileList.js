@@ -9,13 +9,15 @@ export function ProfileList() {
 
   return (
     <ul className="profile-list scrollable">
-      {profiles.map(({ id, label, type, editable }) => (
+      {profiles.map(({ id, label, type }, i) => (
         <ListItem
           key={`${id}`}
           label={label}
           type={type}
           isActive={selectedId === id}
           editable={editSelected && selectedId === id}
+          index={i}
+          identifier={id}
         />
       ))}
     </ul>

@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 export const profilesSlice = createSlice({
   name: "profiles",
@@ -25,14 +25,16 @@ export const profilesSlice = createSlice({
         type: "music",
       },
     ],
-    idCount: 4,
+    nextId: 5,
     selectedId: 1,
     editSelected: false,
   },
   reducers: {
+    setSelectedId: (state, action) => {
+      state.selectedId = action.payload;
+    },
     moveUp: (state, action) => {
-      state.profiles = action.payload;
-      const index = state.profiles.findIndex((p) => p.id);
+      const index = state.profiles.findIndex((p) => p.id === action.payload);
 
       state.profiles = [
         ...state.profiles.slice(0, index - 1),
@@ -42,8 +44,7 @@ export const profilesSlice = createSlice({
       ];
     },
     moveDown: (state, action) => {
-      state.profiles = action.payload;
-      const index = state.profiles.findIndex((p) => p.id);
+      const index = state.profiles.findIndex((p) => p.id === action.payload);
 
       state.profiles = [
         ...state.profiles.slice(0, index),
@@ -60,31 +61,31 @@ export const profilesSlice = createSlice({
       state.selectedId = state.profiles[action.payload - 1].id;
     },
     rename: (state, action) => {
-      const { i, newLabel } = action.payload;
+      const { index, newLabel } = action.payload;
 
       state.profiles = [
-        ...state.profiles.slice(0, i),
-        { ...state.profiles[i], label: newLabel },
-        ...state.profiles.slice(i + 1),
+        ...state.profiles.slice(0, index),
+        { ...state.profiles[index], label: newLabel },
+        ...state.profiles.slice(index + 1),
       ];
     },
     add: (state) => {
       const update = [
         ...state.profiles,
         {
-          id: state.idCount,
+          id: state.nextId,
           label: "New Profile",
           type: "custom",
         },
       ];
-      state.idCount += 1;
+      state.selectedId = state.nextId;
+      state.nextId += 1;
       state.profiles = update;
-      state.selectedId = update.id;
     },
     setProfiles: (state, action) => {
-      const { profiles, idCount, selectedId } = action.payload;
+      const { profiles, nextId, selectedId } = action.payload;
       state.profiles = profiles;
-      state.idCount = idCount;
+      state.nextId = nextId;
       state.selectedId = selectedId;
     },
     setEditSelected: (state, action) => {
@@ -93,6 +94,15 @@ export const profilesSlice = createSlice({
   },
 });
 
-export const { moveUp, moveDown, del, rename, add } = profilesSlice.actions;
+export const {
+  setSelectedId,
+  moveUp,
+  moveDown,
+  del,
+  rename,
+  add,
+  setProfiles,
+  setEditSelected,
+} = profilesSlice.actions;
 
 export default profilesSlice.reducer;
