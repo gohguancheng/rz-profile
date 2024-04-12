@@ -96,3 +96,8 @@ html {
 ::selection {
 	background: rgba(68, 214, 44, 0.3);
 }
+
+.scrollable {
+	overflow-y: auto;
+  overflow-x: hidden;
+}
