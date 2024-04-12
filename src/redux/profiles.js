@@ -58,7 +58,8 @@ export const profilesSlice = createSlice({
         ...state.profiles.slice(0, action.payload),
         ...state.profiles.slice(action.payload + 1),
       ];
-      state.selectedId = state.profiles[action.payload - 1].id;
+      state.selectedId =
+        state.profiles[action.payload ? action.payload - 1 : 0].id;
     },
     rename: (state, action) => {
       const { index, newLabel } = action.payload;
