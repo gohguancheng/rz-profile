@@ -74,3 +74,23 @@
 .profile-item.custom.active::before {
   background-image: url("../../../images/profile_sel_default.svg");
 }
+
+input.profile-item {
+  z-index: 2;
+  font-family: "Roboto", sans-serif;
+  position: absolute;
+  inset: 0;
+  width: calc(100% - 30px);
+  margin-left: 30px;
+  border: 1px solid #44d62c;
+  box-sizing: border-box;
+  background-color: #111 !important;
+  padding: 3px 10px 5px 5px;
+  line-height: 20px;
+}
+
+input.profile-item:focus-visible {
+  outline: none;
+  text-overflow: clip;
+  cursor: text;
+}
