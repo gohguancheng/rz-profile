@@ -5,6 +5,7 @@ export const appSlice = createSlice({
   initialState: {
     showPopup: false,
     textInput: "",
+    timeoutRef: null,
   },
   reducers: {
     setShowPopup: (state, action) => {
@@ -12,6 +13,9 @@ export const appSlice = createSlice({
     },
     setTextInput: (state, action) => {
       state.textInput = action.payload;
+    },
+    setTimeoutRef: (state, action) => {
+      state.timeoutRef = action.payload;
     },
   },
 });

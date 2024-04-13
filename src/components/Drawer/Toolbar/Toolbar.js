@@ -21,18 +21,12 @@ export function Toolbar() {
       <div className="flex-stretch">
         <NormalButton
           iconType="up"
-          handleClick={() => {
-            dispatch(setShowPopup(false));
-            dispatch(moveUp(selectedId));
-          }}
+          handleClick={() => dispatch(moveUp(selectedId))}
           disable={index === 0}
         />
         <NormalButton
           iconType="down"
-          handleClick={() => {
-            dispatch(setShowPopup(false));
-            dispatch(moveDown(selectedId));
-          }}
+          handleClick={() => dispatch(moveDown(selectedId))}
           disable={index === profiles.length - 1}
         />
       </div>
@@ -47,19 +41,10 @@ export function Toolbar() {
         </PopupWrapper>
         <NormalButton
           iconType="rename"
-          handleClick={() => {
-            dispatch(setShowPopup(false));
-            dispatch(setEditSelected(true));
-          }}
+          handleClick={() => dispatch(setEditSelected(true))}
           hide={hideActions}
         />
-        <NormalButton
-          iconType="add"
-          handleClick={() => {
-            dispatch(setShowPopup(false));
-            dispatch(add());
-          }}
-        />
+        <NormalButton iconType="add" handleClick={() => dispatch(add())} />
       </div>
     </div>
   );

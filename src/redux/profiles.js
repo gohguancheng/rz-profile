@@ -83,12 +83,6 @@ export const profilesSlice = createSlice({
       state.nextId += 1;
       state.profiles = update;
     },
-    setProfiles: (state, action) => {
-      const { profiles, nextId, selectedId } = action.payload;
-      state.profiles = profiles;
-      state.nextId = nextId;
-      state.selectedId = selectedId;
-    },
     setEditSelected: (state, action) => {
       state.editSelected = action.payload;
     },
