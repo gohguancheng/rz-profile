@@ -50,7 +50,7 @@ const autoSaveMiddleware = (store) => (next) => async (action) => {
             },
           }
         );
-        console.log(`view your data at https://api.jsonbin.io/v3/b/${binId}`);
+        console.log(`view your data at https://api.jsonbin.io/v3/b/${binId}?meta=false`);
         if (!process.env.REACT_APP_BIN_ID) {
           console.log(
             "Note that this bin is shared and being updated by other users"
