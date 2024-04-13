@@ -1,5 +1,3 @@
-import { setShowPopup } from "../appState";
-
 const closePopupMiddleware = (store) => (next) => (action) => {
   const popupIsOpened = store.getState().appState.showPopup;
 
