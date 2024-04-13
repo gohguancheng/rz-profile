@@ -13,6 +13,7 @@ Test link: [rz-profile.vercel.app/](https://rz-profile.vercel.app)
 
 This app focuses on a profile list management component to the left of the
 viewport.
+
 - Left panel contains the profile list and the right panel contains the selected
   profile name.
 - Profile list shows list of profiles, with a toolbar anchored below.
@@ -31,8 +32,11 @@ viewport.
   save the user's profile list into their browser storage.
 
 ## Possible Improvements
+
 - preload icon images to prevent buggy render
 - add content for window component
+- move api calls to a separate service folder for cleaner code, fix linting
+  warning for 'Unnecessarily computed property'
 
 ## Create React App - Available Scripts
 

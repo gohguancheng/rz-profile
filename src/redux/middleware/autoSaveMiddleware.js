@@ -38,7 +38,7 @@ const autoSaveMiddleware = (store) => (next) => async (action) => {
       );
 
       if (bin.data) {
-        const res = await axios.put(
+        await axios.put(
           `https://api.jsonbin.io/v3/b/${binId}?meta=false`,
           {
             profiles: newState.profiles.profiles,
